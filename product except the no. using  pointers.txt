@@ -1,0 +1,46 @@
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        
+        #basic idea is creating array  for left and right. so either we can create  one left array and [1,1,2,6]is left array for example 1. product right[]
+        left=[]
+        product_left=1
+        left.append(product_left)
+        ans=[]
+        
+        #I will move from 0 index to n-1 index.I wont take last index to maintain the length 
+        for i in range(0,len(nums)-1):
+            product_left*=nums[i]
+            left.append(product_left)
+        right_product=1
+        A=1
+        #[24,12,4,1]
+        for i in range(len(left)-1,-1,-1):
+            ans.append(left[i]*right_product)
+            right_product*=nums[i]
+            
+        ans=reversed(ans)
+        return ans
+        
+            
+            
+            
+            
+            
+            
+            
+        
+        
+        
+            
+            
+        
+        
+        
+        
+                
+       
+        
+        
+            
+            
+        
